@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceIQ – Business Voice Assistant</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- apply saved theme before paint to prevent flash -->
+  <script>(function(){var t=localStorage.getItem('voiceiq-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+  <!-- ambient background orbs -->
+  <div class="orb orb--purple"></div>
+  <div class="orb orb--teal"></div>
+  <div class="orb orb--pink"></div>
+
+  <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="landing.html" class="header-logo">
+        <span class="header-logo-dot"></span>
+        VoiceIQ
+      </a>
+      <div class="header-center">
+        <span class="header-step header-step--active" id="step-upload">① Upload</span>
+        <span class="header-step-sep">→</span>
+        <span class="header-step header-step--active" id="step-talk">② Talk</span>
+        <span class="header-step-sep">→</span>
+        <span class="header-step header-step--active" id="step-answer">③ Insights</span>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle" title="Toggle light / dark mode" aria-label="Toggle theme">
+          <span class="theme-toggle__icon">☀️</span>
+          <span class="theme-toggle__label">Light</span>
+        </button>
+        <span class="hf-badge">💬 Chat</span>
+        <a href="landing.html" class="header-back-link">← Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ MAIN ════════════════════════════ -->
+  <main class="app-main">
+
+    <!-- ══════════════ LEFT PANEL : Upload + Preview ══════════════ -->
+    <section class="panel panel--left" id="upload-panel">
+
+      <div class="panel-top">
+        <div class="panel-eyebrow">Step 1</div>
+        <h2 class="panel-title">Upload Business Data</h2>
+        <p class="panel-sub">CSV, Excel, or JSON — we'll handle the rest.</p>
+      </div>
+
+      <!-- Drop zone -->
+      <div class="drop-zone" id="drop-zone" role="button" tabindex="0"
+           aria-label="Upload business data file">
+        <div class="drop-zone__glow"></div>
+        <div class="drop-zone__icon">📁</div>
+        <p class="drop-zone__text">Drag &amp; drop your file here</p>
+        <p class="drop-zone__or">— or —</p>
+        <span class="drop-zone__browse">Browse files</span>
+        <div class="drop-zone__formats">
+          <span class="fmt-badge">CSV</span>
+          <span class="fmt-badge">Excel</span>
+          <span class="fmt-badge">JSON</span>
+        </div>
+        <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.json"
+               class="drop-zone__input" />
+      </div>
+
+      <!-- Upload success status -->
+      <div class="upload-status" id="upload-status" hidden>
+        <div class="upload-status__icon" id="upload-icon">✅</div>
+        <div class="upload-status__info">
+          <p id="upload-filename" class="upload-status__name"></p>
+          <p id="upload-meta"    class="upload-status__meta"></p>
+        </div>
+        <div class="upload-status__badge">Loaded</div>
+      </div>
+
+      <!-- Data preview -->
+      <div class="preview-wrapper" id="preview-wrapper" hidden>
+        <div class="preview-header">
+          <h3 class="preview-title">Data Preview</h3>
+          <span class="preview-badge" id="preview-badge"></span>
+        </div>
+        <div class="table-scroll">
+          <table class="preview-table" id="preview-table">
+            <thead id="preview-thead"></thead>
+            <tbody id="preview-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel-info-strip">
+        <span class="info-chip">🔒 Data stays in your session</span>
+        <span class="info-chip">⚡ Instant parsing</span>
+      </div>
+
+    </section>
+
+    <!-- ══════════════ RIGHT PANEL : Voice + Chat ═════════════════ -->
+    <section class="panel panel--right" id="chat-panel">
+
+      <div class="panel-top panel-header">
+        <div>
+          <div class="panel-eyebrow">Step 2</div>
+          <h2 class="panel-title">Talk to Your Data</h2>
+        </div>
+        <button class="end-chat-btn" id="end-chat-btn" disabled title="End this conversation and reset">
+          ⏹ End Chat
+        </button>
+      </div>
+
+      <!-- Voice hub -->
+      <div class="voice-hub" id="voice-control">
+        <div class="mic-ring-wrap">
+          <div class="mic-ring mic-ring--outer"></div>
+          <div class="mic-ring mic-ring--inner"></div>
+          <button class="mic-btn" id="mic-btn" disabled title="Upload a file first">
+            <span class="mic-btn__icon" id="mic-icon">🎙</span>
+          </button>
+        </div>
+        <button class="stop-btn" id="stop-btn" hidden title="Stop speaking">❚❚ Stop</button>
+        <div class="voice-info">
+          <div class="vad-status" id="vad-status">Upload a file to begin</div>
+          <div class="vad-wave" id="vad-wave">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span>
+          </div>
+        </div>
+        <div class="voice-hints" id="voice-hints">
+          <span class="voice-hint-chip">💡 "What was total revenue?"</span>
+          <span class="voice-hint-chip">💡 "Show top 5 customers"</span>
+          <span class="voice-hint-chip">💡 "Summarise trends"</span>
+        </div>
+
+        <!-- Voice selector -->
+        <div class="voice-picker">
+          <label class="voice-picker__label" for="voice-select">🔊 Assistant Voice</label>
+          <select class="voice-picker__select" id="voice-select">
+            <option value="">Default voice</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Conversation -->
+      <div class="conv-header">
+        <span class="conv-header-label">Conversation</span>
+      </div>
+
+      <div class="conversation" id="conversation" aria-live="polite">
+        <div class="conversation__empty" id="conversation-empty">
+          <div class="empty-icon">💬</div>
+          <p class="empty-title">No messages yet</p>
+          <p class="empty-sub">Upload a file, click the mic or type below.</p>
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="text-input-row" id="text-input-row">
+        <input type="text" id="text-input" class="text-input"
+               placeholder="Or type your question here…" disabled />
+        <button class="send-btn" id="send-btn" disabled title="Send">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ═══════════════════════ LOADING OVERLAY ═════════════════════ -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="overlay-card">
+      <div class="spinner"></div>
+      <p id="overlay-msg" class="overlay__msg">Processing…</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ SCRIPTS ═════════════════════════════ -->
+  <script src="js/audioPlayer.js"></script>
+  <script src="js/websocket.js"></script>
+  <script src="js/voiceInterface.js"></script>
+  <script src="js/fileUpload.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+  (function () {
+    var btn   = document.getElementById('theme-toggle');
+    var icon  = btn.querySelector('.theme-toggle__icon');
+    var label = btn.querySelector('.theme-toggle__label');
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('voiceiq-theme', theme);
+      if (theme === 'light') {
+        icon.textContent  = '🌙';
+        label.textContent = 'Dark';
+      } else {
+        icon.textContent  = '☀️';
+        label.textContent = 'Light';
+      }
+    }
+
+    // init from saved preference
+    var saved = localStorage.getItem('voiceiq-theme') || 'dark';
+    applyTheme(saved);
+
+    btn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+  })();
+  </script>
+</body>
+</html>

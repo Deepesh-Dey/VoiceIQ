@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceIQ – Business Voice Assistant</title>
+  <link rel="stylesheet" href="css/landing.css" />
+  <!-- apply saved theme before paint to avoid flash -->
+  <script>(function(){var t=localStorage.getItem('voiceiq-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════ NAV ════════════════════════════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-dot"></span>
+        VoiceIQ
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" title="Toggle light / dark mode">
+            <span class="theme-toggle__icon">☀️</span>
+            <span class="theme-toggle__label">Light</span>
+          </button>
+        </li>
+        <li><a href="index.html" class="nav-cta">Launch App →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════ HERO ══════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Power Your Business using VoiceIQ
+    </div>
+
+    <h1 class="hero-title">
+      Talk to Your Business Data<br/>
+      <span class="grad">Naturally. Instantly.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Upload a spreadsheet or CSV, speak your question, and get intelligent answers
+      spoken back — no SQL, no dashboards, no learning curve.
+    </p>
+
+    <div class="hero-actions">
+      <a href="index.html" class="btn-primary">
+        &#127908; Launch the App
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="#how-it-works" class="btn-secondary">
+        See how it works ↓
+      </a>
+    </div>
+
+    <!-- Mock UI preview -->
+    <div class="hero-visual">
+      <div class="hero-window">
+        <div class="hero-window-bar">
+          <div class="wdot wdot-r"></div>
+          <div class="wdot wdot-y"></div>
+          <div class="wdot wdot-g"></div>
+          <div class="wdot-url">VoiceIQ</div>
+        </div>
+        <div class="hero-window-body">
+          <!-- Left: upload panel mock -->
+          <div class="mock-panel">
+            <div class="mock-label">1 · Upload Business Data</div>
+            <div class="mock-upload-zone">📄 Drop CSV · Excel · JSON</div>
+            <div class="mock-table-row">
+              <div class="mock-cell head"></div>
+              <div class="mock-cell head"></div>
+              <div class="mock-cell head"></div>
+            </div>
+            <div class="mock-table-row">
+              <div class="mock-cell"></div>
+              <div class="mock-cell"></div>
+              <div class="mock-cell"></div>
+            </div>
+            <div class="mock-table-row">
+              <div class="mock-cell"></div>
+              <div class="mock-cell" style="flex:0.6"></div>
+              <div class="mock-cell"></div>
+            </div>
+            <div class="mock-table-row">
+              <div class="mock-cell"></div>
+              <div class="mock-cell"></div>
+              <div class="mock-cell" style="flex:1.4"></div>
+            </div>
+          </div>
+          <!-- Right: chat panel mock -->
+          <div class="mock-panel">
+            <div class="mock-label">2 · Talk to Your Data</div>
+            <div class="mock-mic">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6c63ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="2" width="6" height="11" rx="3"/>
+                <path d="M5 10a7 7 0 0 0 14 0"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="8" y1="22" x2="16" y2="22"/>
+              </svg>
+            </div>
+            <div class="mock-wave">
+              <div class="mock-bar"></div>
+              <div class="mock-bar"></div>
+              <div class="mock-bar"></div>
+              <div class="mock-bar"></div>
+              <div class="mock-bar"></div>
+            </div>
+            <div class="mock-bubble-u">What was the total revenue last quarter?</div>
+            <div class="mock-bubble-a">Total revenue for Q3 was $2.4M, up 18% from Q2.</div>
+            <div class="mock-bubble-u" style="font-size:0.65rem">Which region performed best?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ STATS ═══════════════════════════════ -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-num">3</div>
+        <div class="stat-label">File formats supported</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">&lt;2s</div>
+        <div class="stat-label">Average response time</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Client-side voice activity</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Infrastructure to manage</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ FEATURES ══════════════════════════════ -->
+  <section class="section" id="features">
+    <p class="section-eyebrow reveal">What you get</p>
+    <h2 class="section-title reveal">Everything you need to<br/>interrogate your data by voice</h2>
+    <p class="section-sub reveal">A complete AI pipeline — speech recognition, language model reasoning,
+    and voice synthesis — wired together in one frictionless interface.</p>
+
+    <div class="features-grid reveal-group">
+      <div class="feature-card reveal">
+        <div class="feature-icon purple">🎙</div>
+        <div class="feature-name">Voice-First Interface</div>
+        <div class="feature-desc">Client-side Voice Activity Detection captures your speech the instant
+        you start talking and stops automatically on silence — no button to hold.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon teal">📂</div>
+        <div class="feature-name">Multi-Format Upload</div>
+        <div class="feature-desc">Drop in a <strong>CSV</strong>, <strong>Excel (.xlsx / .xls)</strong>,
+        or <strong>JSON</strong> file. The backend parses and summarises it into an AI-ready context in seconds.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon rose">🤖</div>
+        <div class="feature-name">LLM-Powered Reasoning</div>
+        <div class="feature-desc">Qwen 2.5-7B on HuggingFace Router provides sharp, context-aware answers
+        with full conversation memory — ask follow-ups naturally.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon blue">🔊</div>
+        <div class="feature-name">Spoken Responses</div>
+        <div class="feature-desc">Answers are read back using the browser's native Speech Synthesis —
+        zero latency, no audio round-trip, and a pause button to interrupt any time.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon amber">⚡</div>
+        <div class="feature-name">Whisper Transcription</div>
+        <div class="feature-desc">Your voice is encoded as raw 16 kHz WAV in-browser and sent to
+        <em>whisper-large-v3-turbo</em> via HuggingFace inference — no browser codec issues.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon green">💬</div>
+        <div class="feature-name">Text Fallback</div>
+        <div class="feature-desc">Not in a place to speak? The text input box is always available
+        alongside the mic — same AI, same context, same conversation history.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ HOW IT WORKS ════════════════════════════ -->
+  <section id="how-it-works">
+    <div class="steps-section">
+      <p class="section-eyebrow reveal">Simple by design</p>
+      <h2 class="section-title reveal" style="margin-bottom:3.5rem">Up and running in four steps</h2>
+
+      <div class="steps-grid reveal-group">
+        <div class="step-item reveal">
+          <div class="step-num">📁</div>
+          <div class="step-label">Upload your data</div>
+          <div class="step-desc">Drag in any CSV, Excel, or JSON file containing your business data.</div>
+        </div>
+        <div class="step-item reveal">
+          <div class="step-num">🎙</div>
+          <div class="step-label">Click the mic</div>
+          <div class="step-desc">Press once to start. VAD keeps listening until you stop speaking.</div>
+        </div>
+        <div class="step-item reveal">
+          <div class="step-num">🤖</div>
+          <div class="step-label">AI processes</div>
+          <div class="step-desc">Whisper transcribes, Qwen reasons over your data and crafts an answer.</div>
+        </div>
+        <div class="step-item reveal">
+          <div class="step-num">🔊</div>
+          <div class="step-label">Listen &amp; follow up</div>
+          <div class="step-desc">The answer is spoken back. Ask a follow-up — your full history is kept.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ CTA ════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="cta-card reveal">
+      <h2 class="cta-title">Ready to talk to your data?</h2>
+      <p class="cta-sub">Upload your first file and ask your first question in under 60 seconds.
+      No account, no install, no configuration needed.</p>
+      <a href="index.html" class="btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem;">
+        &#127908;&nbsp; Launch VoiceIQ
+        <span class="btn-arrow">→</span>
+      </a>
+      <p class="cta-note">
+        All AI inference runs on <a href="https://huggingface.co" target="_blank" rel="noopener">HuggingFace</a>.
+        Your data never leaves your session.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner" style="justify-content:center;text-align:center;">
+      <div class="footer-copy">© Created By Deepesh Dey</div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll-triggered reveal ─────────────────────────────────────
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ── Theme toggle ────────────────────────────────────────────────────
+    (function () {
+      var btn   = document.getElementById('theme-toggle');
+      var icon  = btn.querySelector('.theme-toggle__icon');
+      var label = btn.querySelector('.theme-toggle__label');
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('voiceiq-theme', theme);
+        if (theme === 'light') {
+          icon.textContent  = '🌙';
+          label.textContent = 'Dark';
+        } else {
+          icon.textContent  = '☀️';
+          label.textContent = 'Light';
+        }
+      }
+      var saved = localStorage.getItem('voiceiq-theme') || 'dark';
+      applyTheme(saved);
+      btn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    })();  </script>
+
+</body>
+</html>
