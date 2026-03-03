@@ -6,11 +6,11 @@ A voice-powered business data analysis assistant. Upload a CSV or Excel file, th
 
 ## Screenshots
 
-| Dark Mode | |
+| | |
 |---|---|
 | ![Dark 1](demo/1.png) | ![Dark 2](demo/2.png) |
 
-| Light Mode | |
+| | |
 |---|---|
 | ![Light 1](demo/3.png) | ![Light 2](demo/4.png) |
 
