@@ -13,7 +13,9 @@
  */
 
 const App = (() => {
-
+  // Auto-detect API base: localhost dev → port 8000, production → same origin
+  const _ah = window.location.hostname;
+  const _API_BASE = (_ah === 'localhost' || _ah === '127.0.0.1') ? 'http://localhost:8000' : '';
   // ── App state ─────────────────────────────────────────────────────
   let _sessionId    = null;
   let _voiceActive  = false;     // mic loop running
@@ -325,7 +327,7 @@ const App = (() => {
       _showThinking();
 
       try {
-        const res = await fetch('http://localhost:8000/api/chat/', {
+        const res = await fetch(_API_BASE + '/api/chat/', {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

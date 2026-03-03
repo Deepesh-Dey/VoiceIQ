@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 import os
+import pathlib
 
 from app.config import get_settings
 from app.routes import upload, voice, chat
@@ -46,3 +47,11 @@ async def health_check():
         "llm": settings.LLM_MODEL,
         "tts": settings.TTS_MODEL,
     }}
+
+
+# ── Serve frontend static files ───────────────────────────────────────────────
+# Must be mounted LAST so it doesn’t shadow any /api/* routes.
+# Path: backend/app/main.py → ↑↑↑ repo root → frontend/
+_FRONTEND_DIR = pathlib.Path(__file__).parent.parent.parent / "frontend"
+if _FRONTEND_DIR.exists():
+    app.mount("/", StaticFiles(directory=str(_FRONTEND_DIR), html=True), name="frontend")

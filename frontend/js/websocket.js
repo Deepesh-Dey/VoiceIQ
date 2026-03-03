@@ -15,7 +15,12 @@
  */
 
 const WS = (() => {
-  const BACKEND_WS = 'ws://localhost:8000/api/voice/ws';
+  // Auto-detect: localhost dev → port 8000, production → same origin with wss://
+  const _wh = window.location.hostname;
+  const _isLocal = (_wh === 'localhost' || _wh === '127.0.0.1');
+  const BACKEND_WS = _isLocal
+    ? 'ws://localhost:8000/api/voice/ws'
+    : (window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/api/voice/ws';
 
   let _socket   = null;
   let _sessionId = null;

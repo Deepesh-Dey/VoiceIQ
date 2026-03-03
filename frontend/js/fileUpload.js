@@ -7,7 +7,9 @@
  */
 
 const FileUpload = (() => {
-  const API_UPLOAD = 'http://localhost:8000/api/upload/';
+  // Auto-detect: localhost dev → port 8000, production → same origin
+  const _fh = window.location.hostname;
+  const API_UPLOAD = ((_fh === 'localhost' || _fh === '127.0.0.1') ? 'http://localhost:8000' : '') + '/api/upload/';
 
   // DOM refs (initialised in init())
   let _dropZone, _fileInput, _uploadStatus, _uploadIcon,
